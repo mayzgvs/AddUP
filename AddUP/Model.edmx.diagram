@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64e82864af964c01baaee5b2b8cb797f" Name="Diagram1">
+        <EntityTypeShape EntityType="VatamanyukModel.Ads" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VatamanyukModel.Categories" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VatamanyukModel.Cities" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VatamanyukModel.Statuses" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VatamanyukModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VatamanyukModel.Types" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VatamanyukModel.Users" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="VatamanyukModel.FK__Ads__category_id__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="VatamanyukModel.FK__Ads__city_id__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="VatamanyukModel.FK__Ads__status_id__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="VatamanyukModel.FK__Ads__type_id__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="VatamanyukModel.FK__Ads__user_id__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
