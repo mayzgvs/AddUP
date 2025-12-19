@@ -6,22 +6,18 @@
         xmlns:local="clr-namespace:AddUP"
         mc:Ignorable="d"
         Title="Объявления"
-        Height="650"
-        Width="1100"
+        Height="auto"
+        Width="auto"
         WindowStartupLocation="CenterScreen"
         Icon="Photos/Иконка.ico"
         Background="White"
         FontFamily="Tw Cen MT"
         FontSize="14">
 
-    <!-- Глобальные цвета и кисти -->
     <Window.Resources>
         <SolidColorBrush x:Key="PrimaryTextBrush"    Color="#37474F"/>
-        <!-- RGB(55,71,79) -->
         <SolidColorBrush x:Key="SecondaryTextBrush"  Color="#78909C"/>
-        <!-- RGB(120,144,156) -->
         <SolidColorBrush x:Key="AccentBrush"         Color="#FF9E1A"/>
-        <!-- RGB(255,156,26) -->
     </Window.Resources>
 
     <Grid>
@@ -30,7 +26,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Заголовок окна с логотипом — строго по гайдлайну -->
         <Border Grid.Row="0" Background="#37474F" Height="60">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Image Source="/Photos/Лого.png"
@@ -45,7 +40,6 @@
             </StackPanel>
         </Border>
 
-        <!-- Основная рабочая область — белый фон -->
         <Grid Grid.Row="1" Background="White" Margin="16">
             <Frame x:Name="MainFrame"
                    NavigationUIVisibility="Hidden"

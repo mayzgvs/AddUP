@@ -1,5 +1,4 @@
-﻿// Pages/LoginPage.xaml.cs
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,7 +6,7 @@ namespace AddUP.Pages
 {
     public partial class LoginPage : Page
     {
-        private readonly Entities db = new Entities(); // твой контекст БД
+        private readonly Entities db = new Entities();
 
         public LoginPage()
         {
@@ -35,13 +34,11 @@ namespace AddUP.Pages
                 return;
             }
 
-            // Сохраняем текущего пользователя (можно через static класс или Properties)
             App.CurrentUser = user;
 
             MessageBox.Show($"Добро пожаловать, {user.user_login}!", "Успешный вход",
                 MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Переход в личный кабинет
             NavigationService.Navigate(new UserAdsPage());
         }
 

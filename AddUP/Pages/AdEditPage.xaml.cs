@@ -10,7 +10,7 @@ namespace AddUP.Pages
     public partial class AdEditPage : Page
     {
         private readonly Entities db = new Entities();
-        private readonly Ads _ad;               // null = новое объявление
+        private readonly Ads _ad; 
         private readonly UserAdsPage _parentPage;
 
         public AdEditPage(Ads ad, UserAdsPage parent)
@@ -44,25 +44,23 @@ namespace AddUP.Pages
         {
             txtTitle.Text = _ad.ad_title;
             txtDescription.Text = _ad.ad_description ?? "";
-            //txtPrice.Text = _ad.price.ToString("0.00");                    // decimal → строка
+            //txtPrice.Text = _ad.price.ToString("0.00"); 
             cmbCity.SelectedValue = _ad.city_id;
             cmbCategory.SelectedValue = _ad.category_id;
             cmbType.SelectedValue = _ad.type_id;
             cmbStatus.SelectedValue = _ad.status_id;
         }
 
-        // Разрешаем только цифры в поле цены
         private void Number_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
-        // Главное: смена статуса на «Завершено» → предлагаем ввести сумму
         private void cmbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbStatus.SelectedItem is Statuses status && status.status_desc == "Завершено")
             {
-                if (_ad == null) return; // новое объявление — ничего не спрашиваем
+                if (_ad == null) return; 
 
                 var oldStatus = db.Statuses.FirstOrDefault(s => s.status_id == _ad.status_id);
                 if (oldStatus != null && oldStatus.status_desc == "Активно")
@@ -87,10 +85,8 @@ namespace AddUP.Pages
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            // Приводим CurrentUser к правильному типу
-            var currentUser = App.CurrentUser as Users; // Замените Users на ваш класс пользователя
+            var currentUser = App.CurrentUser as Users; 
 
-            // Валидация
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 MessageBox.Show("Введите заголовок объявления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -110,7 +106,6 @@ namespace AddUP.Pages
                 return;
             }
 
-            // Проверяем, что пользователь авторизован
             if (currentUser == null)
             {
                 MessageBox.Show("Пользователь не авторизован.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -120,7 +115,7 @@ namespace AddUP.Pages
 
             try
             {
-                if (_ad == null) // новое
+                if (_ad == null) 
                 {
                     var newAd = new Ads
                     {
@@ -131,13 +126,13 @@ namespace AddUP.Pages
                         category_id = (int)cmbCategory.SelectedValue,
                         type_id = (int)cmbType.SelectedValue,
                         status_id = (int)cmbStatus.SelectedValue,
-                        user_id = currentUser.user_id, // Используем приведенный тип
+                        user_id = currentUser.user_id, 
                         ad_post_date = DateTime.Now,
                         photo = null
                     };
                     db.Ads.Add(newAd);
                 }
-                else // редактирование
+                else 
                 {
                     _ad.ad_title = txtTitle.Text.Trim();
                     _ad.ad_description = txtDescription.Text.Trim();

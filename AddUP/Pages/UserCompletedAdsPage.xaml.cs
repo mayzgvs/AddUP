@@ -16,8 +16,7 @@ namespace AddUP.Pages
 
         private void LoadCompletedAds()
         {
-            // Приводим CurrentUser к правильному типу
-            var currentUser = App.CurrentUser as Users; // Замените Users на ваш класс пользователя
+            var currentUser = App.CurrentUser as Users; 
 
             if (currentUser == null)
             {
@@ -27,7 +26,7 @@ namespace AddUP.Pages
 
             var completedAds = db.Ads
                 .Where(a => a.user_id == currentUser.user_id
-                          && a.status_id == 2) // ID для статуса "Завершено"
+                          && a.status_id == 2) 
                 .ToList();
 
             LWcompleted.ItemsSource = completedAds;

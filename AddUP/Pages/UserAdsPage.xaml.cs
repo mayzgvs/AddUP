@@ -18,8 +18,7 @@ namespace AddUP.Pages
 
         private void LoadAds()
         {
-            // Приводим CurrentUser к правильному типу
-            var currentUser = App.CurrentUser as Users; // Замените Users на ваш класс пользователя
+            var currentUser = App.CurrentUser as Users;
 
             if (currentUser == null)
             {
@@ -35,7 +34,7 @@ namespace AddUP.Pages
 
         private void AddAd_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdEditPage(null, this)); // null = новое объявление
+            NavigationService.Navigate(new AdEditPage(null, this)); 
         }
 
         private void dgAds_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -88,7 +87,6 @@ namespace AddUP.Pages
             NavigationService.Navigate(new UserCompletedAdsPage());
         }
 
-        // Метод для обновления списка из другой страницы
         public void RefreshAds() => LoadAds();
     }
 }

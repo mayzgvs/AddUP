@@ -50,7 +50,7 @@
                     <Border Background="White" CornerRadius="8" Width="300" Margin="16"
                             BorderBrush="#E0E0E0" BorderThickness="1" Padding="16">
                         <StackPanel>
-                            <Image Source="{Binding photo, TargetNullValue=/Photos/default.jpg}"
+                            <Image Source="\Photos\default.jpg"
                                    Height="180" Stretch="UniformToFill" Margin="0,0,0,16"/>
                             <TextBlock Text="{Binding ad_title}" FontWeight="Bold" FontSize="18"
                                        Foreground="#37474F" TextWrapping="Wrap" TextAlignment="Center"/>
